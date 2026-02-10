@@ -3,274 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suraj Love Radhu</title>
+    <title>Suraj Harer - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --accent-color: #F5A623;
+            --text-color: #333;
+            --light-text-color: #666;
+            --bg-light: #f8f9fa;
+            --bg-dark: #e9ecef;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
         }
 
         body {
-            width: 100%;
-            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            min-height: 100vh;
         }
 
         .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-light);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
             text-align: center;
-            position: relative;
-            z-index: 10;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--bg-dark);
+            margin-bottom: 30px;
         }
 
-        .hearts-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .heart {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            opacity: 0.7;
-            animation: float 6s ease-in infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) scale(0);
-                opacity: 0;
-            }
-        }
-
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-            width: 30px;
-            height: 48px;
-            background: #ff6b9d;
-            border-radius: 30px 30px 0 0;
-            top: 0;
-        }
-
-        .heart::before {
-            left: 15px;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-        }
-
-        .heart::after {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
-        }
-
-        .main-content {
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 60px 80px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            animation: slideIn 0.8s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
             font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .names {
-            font-size: 2.5em;
-            font-weight: 600;
-            margin: 30px 0;
-            line-height: 1.6;
-        }
-
-        .name-suraj {
-            color: #667eea;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .love-symbol {
-            color: #ff6b9d;
-            font-size: 2.8em;
-            margin: 0 15px;
-            display: inline-block;
-            animation: heartbeat 1.3s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.3);
-            }
-            50% {
-                transform: scale(1);
-            }
-        }
-
-        .name-radhu {
-            color: #764ba2;
-            animation: pulse 2s ease-in-out infinite 0.3s;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-top: 30px;
-            font-style: italic;
             letter-spacing: 1px;
         }
 
-        .decorative-line {
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea 0%, #ff6b9d 50%, #764ba2 100%);
-            margin: 25px auto;
-            border-radius: 2px;
+        header p {
+            color: var(--light-text-color);
+            font-size: 1.1em;
+            margin: 5px 0;
         }
 
-        /* Responsive design */
+        header a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--text-color);
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '\2022'; /* Bullet point */
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            background-color: var(--bg-dark);
+        }
+
+        .experience-item h4, .project-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .experience-item p, .project-item p {
+            margin: 0 0 10px 0;
+            color: var(--light-text-color);
+            font-size: 0.95em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--bg-dark);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-light);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-bottom: 1px dashed var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-category ul li {
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-size: 0.9em;
+            padding-left: 0;
+        }
+
+        .skill-category ul li::before {
+            content: '\2713'; /* Checkmark */
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--light-text-color);
+            font-size: 0.9em;
+            border-top: 1px solid var(--bg-dark);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .main-content {
-                padding: 40px 30px;
+            .container {
+                width: 95%;
+                margin: 10px auto;
+                padding: 15px;
             }
 
-            h1 {
+            header h1 {
                 font-size: 2.5em;
             }
 
-            .names {
+            h2 {
                 font-size: 1.8em;
             }
 
-            .love-symbol {
-                font-size: 2em;
-                margin: 0 10px;
-            }
-
-            .subtitle {
-                font-size: 1em;
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .main-content {
-                padding: 30px 20px;
+            header h1 {
+                font-size: 2em;
             }
 
-            h1 {
-                font-size: 1.8em;
+            header p {
+                font-size: 1em;
             }
 
-            .names {
-                font-size: 1.3em;
-            }
-
-            .love-symbol {
+            h2 {
                 font-size: 1.5em;
-                margin: 0 8px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .experience-item, .project-item {
+                padding: 10px;
+            }
+
+            .skill-category {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hearts-container" id="heartsContainer"></div>
-
     <div class="container">
-        <div class="main-content">
-            <h1>✨ A Beautiful Love Story ✨</h1>
-            
-            <div class="decorative-line"></div>
-            
-            <div class="names">
-                <span class="name-suraj">Suraj</span>
-                <span class="love-symbol">❤️</span>
-                <span class="name-radhu">Radhu</span>
+        <header>
+            <h1>Suraj Harer</h1>
+            <p>Cloud & DevOps Engineer</p>
+            <p>Mobile: +91 8087452259 | Email: <a href="mailto:surajharerofficial@gmail.com">surajharerofficial@gmail.com</a></p>
+        </header>
+
+        <section id="professional-summary">
+            <h2>Professional Summary</h2>
+            <p>I am looking forward to work in an organization, which provides the environment for growth with competent and strong leaders in Cloud and DevOps technologies. I am looking forward to working on various AWS services such as EC2, VPC, RDS, S3, IAM, CLOUDWATCH, CLOUDTRAIL, DevOps tools such as GIT, JENKINS, MAVEN, ANSIBLE, DOCKER, TERRAFORM and KUBERNETES. I have an urge and inclination for learning new technologies, a strong work ethic combined with a commitment to excellence in all projects undertaken.</p>
+            <ul>
+                <li>Having 3.5 years of Experience in AWS cloud and DevOps.</li>
+                <li>Well acquainted with the Software Development Life Cycle (SDLC).</li>
+                <li>Hands-on experience in CI/CD DevOps Automation.</li>
+                <li>Good experience with GIT and GITHUB.</li>
+                <li>Good experience in Jenkins CI/CD Pipeline.</li>
+                <li>Good Hands-on experience with Ansible.</li>
+                <li>Good Knowledge of Terraform and Kubernetes.</li>
+                <li>Have Good experience with AWS cloud.</li>
+                <li>Hands-on experience on AWS services like EC2, S3, EFS, RDS, Auto scaling, ELB, VPC, IAM, CloudTrail, Cloud Watch, SNS.</li>
+                <li>EC2 – launched various types of instances such as t2.medium etc. created security groups, created AMIs, worked on EBS and EBS snapshots etc.</li>
+                <li>VPC- created own Virtual network with provided CIDR block, created subnets, NAT gateways, internet gateways etc.</li>
+                <li>Worked on VPC peering.</li>
+                <li>Cross zone AMI and EBS snapshot sharing.</li>
+                <li>Worked on application and network load balancers, created target groups, configured targets.</li>
+                <li>Added load balancer setup under Auto scaling and applied auto scaling policies to make sure 100% availability of the ENV.</li>
+                <li>Created multiple launch configurations as per requirements.</li>
+                <li>Have Strong knowledge regarding S3 buckets as well as AWS CLI with regards to S3.</li>
+                <li>Worked on S3 bucket replication and S3 bucket lifecycle to make sure data lifecycle is optimal.</li>
+                <li>Managed user access with IAM, created various groups, used various AWS policies for granular access. Also worked on creating roles to manage project specific tasks.</li>
+                <li>Complete hands-on experience with CloudWatch, also done application log monitoring as well as EC2 health monitoring, created own dashboards for better view.</li>
+                <li>Worked on GIT and GITHUB, created branches, GitHub access management.</li>
+                <li>Worked on management of multiple project repositories, branches, tags etc.</li>
+                <li>Worked on deployment of WAR on tomcat application server.</li>
+                <li>Also worked on RDS database service.</li>
+                <li>Worked on Maven tool for compilation of source code.</li>
+                <li>Worked on Docker containers, deployed application on docker container with the help of Jenkins.</li>
+                <li>Hands-on experience on Linux and Shell scripting.</li>
+                <li>Worked on Ansible for configuration management.</li>
+            </ul>
+        </section>
+
+        <section id="employment-summary">
+            <h2>Employment Summary</h2>
+            <div class="experience-item">
+                <h4>Cloud Support Engineer</h4>
+                <p>Ellicium Solutions, Pune | Jan 2020 - Present</p>
             </div>
-            
-            <div class="decorative-line"></div>
-            
-            <p class="subtitle">Forever in each other's hearts</p>
-        </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <h4>BACHELOR OF ENGINEERING</h4>
+                <p>Details not provided in resume</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>SCM Tools</h4>
+                    <ul>
+                        <li>Git (2.40.1)</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Database</h4>
+                    <ul>
+                        <li>RDS (MySql 8.0.35)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Ticketing Tool</h4>
+                    <ul>
+                        <li>JIRA</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Scripting Language</h4>
+                    <ul>
+                        <li>Shell Scripting</li>
+                        <li>Jenkins Declarative Pipeline</li>
+                        <li>HCL</li>
+                        <li>YAML</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Operating Systems</h4>
+                    <ul>
+                        <li>Red Hat Linux</li>
+                        <li>Windows (Microsoft Windows Server 2022 base)</li>
+                        <li>Amazon Linux 2 AMI (HVM) – kernel 5.10</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>CI/CD Tools</h4>
+                    <ul>
+                        <li>Jenkins (jenkins.noarch 0:2.452.3-1.1)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>AWS Services</h4>
+                    <ul>
+                        <li>EC2</li>
+                        <li>VPC</li>
+                        <li>S3</li>
+                        <li>SNS</li>
+                        <li>RDS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>AWS Monitoring Services</h4>
+                    <ul>
+                        <li>CloudWatch</li>
+                        <li>CloudTrail</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Servers</h4>
+                    <ul>
+                        <li>Apache Tomcat 9.0.91</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Configuration Management Tool</h4>
+                    <ul>
+                        <li>Ansible 2.9.23</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Infrastructure Provisioning Tool</h4>
+                    <ul>
+                        <li>Terraform</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Orchestration Tool</h4>
+                    <ul>
+                        <li>Kubernetes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <h4>Project #1: Footprint States</h4>
+                <p><strong>Domain:</strong> Insurance</p>
+                <p><strong>Responsibilities:</strong></p>
+                <ul>
+                    <li>Worked on daily builds and deployments on DEV, QA and UAT Envs.</li>
+                    <li>Making sure the Envs are up and running for testing purposes.</li>
+                    <li>Creating and maintaining AWS Infra.</li>
+                    <li>Creating Jenkins CI/CD pipeline for all the branches.</li>
+                    <li>Source code management of both development team and for QA.</li>
+                    <li>Providing access to users in SCM.</li>
+                    <li>Creating and Maintaining EC2 machines, creating AMI, EBS snapshots.</li>
+                    <li>Setting up Application Load balancer for QA env.</li>
+                    <li>Infrastructure monitoring with the help of CloudWatch and CloudWatch logs.</li>
+                    <li>Setting up SNS topics for email.</li>
+                    <li>Copying server logs onto S3 for backup, also maintaining S3 data lifecycle.</li>
+                    <li>Creating IAM groups, roles and policies.</li>
+                    <li>Creating CloudTrail for monitoring user activity for compliance purpose.</li>
+                    <li>Creating MySQL DB in RDS and maintaining its backups, read replicas.</li>
+                    <li>Created VPC peering connections between QA and UAT networks for private subnets.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="personal-details">
+            <h2>Personal Details</h2>
+            <ul>
+                <li><strong>Name:</strong> Suraj Harer</li>
+                <li><strong>Father’s name:</strong> Shivaji Harer</li>
+                <li><strong>Current Address:</strong> Warje Malwadi, Pune</li>
+                <li><strong>Mobile number:</strong> +91 8087 4 52259</li>
+                <li><strong>Languages:</strong> English, Hindi, Marathi</li>
+            </ul>
+        </section>
     </div>
 
-    <script>
-        // Generate floating hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            heart.style.animationDelay = Math.random() * 2 + 's';
-            document.getElementById('heartsContainer').appendChild(heart);
-
-            // Remove heart after animation completes
-            setTimeout(() => {
-                heart.remove();
-            }, 8000);
-        }
-
-        // Create hearts at intervals
-        setInterval(createHeart, 500);
-
-        // Create initial hearts
-        for (let i = 0; i < 5; i++) {
-            setTimeout(createHeart, i * 200);
-        }
-    </script>
+    <footer>
+        <p>&copy; 2026 Suraj Harer. All rights reserved.</p>
+    </footer>
 </body>
 </html>
